@@ -1,11 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Login from '../screens/Login'
 import Register from '../screens/Register'
 
 const UserModal = () => {
+    const [modalClose, setModalClose] = useState(false)
 
     const closeModal = () => {
-        console.log('close modal')
+        setModalClose(true)
     }
 
     return (

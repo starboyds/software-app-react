@@ -23,8 +23,8 @@ const Navbar = () => {
 
     const submitSearch = (e) => {
         e.preventDefault();
-        console.log(searchText);
         navigate(`/search/${searchText}`);
+        e.target.value = ''
     }
 
     return (
@@ -59,8 +59,16 @@ const Navbar = () => {
                             User
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a className="dropdown-item" href="/collections">Collections (<b>{collections.length}</b>)</a></li>
-                            <li><a className="dropdown-item" href="/user-profile">Profile</a></li>
+                            <li>
+                                <Link to='/collections'  style={{textDecoration: 'none'}}>
+                                    <span className="dropdown-item">Collections (<b>{collections.length}</b>)</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/profile'  style={{textDecoration: 'none'}}>
+                                    <span className="dropdown-item">Profile</span>
+                                </Link>
+                            </li>
                             <li><hr className="dropdown-divider" /></li>
                             <li><a className="dropdown-item" onClick={logOut}>Logout</a></li>
                         </ul>

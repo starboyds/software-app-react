@@ -14,6 +14,8 @@ import Login from './screens/Login';
 import SoftwarePage from './screens/SoftwarePage';
 import TopSoftware from './screens/TopSoftware';
 import Search from './screens/Search';
+import CollectionPage from './screens/CollectionPage';
+import ProfilePage from './screens/ProfilePage';
 
 const App = () => {
 
@@ -41,6 +43,8 @@ const App = () => {
            <Route path='/software/:id' element={<SoftwarePage />} />
            <Route path='/top-software' element={<TopSoftware />} />
            <Route path='/search/:slug' element={<Search />} />
+           <Route path='/collections' element={<CollectionPage />} />
+           <Route path='/profile' element={<ProfilePage />} />
 
         </Routes>
       </Router>

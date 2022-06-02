@@ -34,7 +34,10 @@ const HomeSection = () => {
                             return <div className='col' key={el._id}>
                                 <div className='card'>
                                     <div className='card-body'>
-                                        <Link to={`/software/${el._id}`}><span>{el.name}</span></Link>
+                                        <img src={el.image_url} alt={el.name} className="img-thumbnail" style={{maxHeight: "220px"}} />
+                                        <Link to={`/software/${el._id}`}><center><span>{el.name}</span></center></Link>
+                                        <hr />
+                                        <p>{ el.desc.slice(0,45) +" ..."}</p>
                                     </div>
                                 </div>
                             </div>

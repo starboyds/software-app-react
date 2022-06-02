@@ -60,13 +60,15 @@ const SoftwarePage = () => {
                     <div className='row'>
                         <div className='col'>
                             <h3>{software.name}</h3>
+                            <img src={software.image_url} alt={software.name} className="img-thumbnail" />
                         </div>
-                        <div className='col-md-8'>
+                        <div className='col-md-8 pt-5'>
                             <p><strong>Description:</strong> {software.desc}</p>
                             <p><strong>Size:</strong> {software.size}MB</p>
                             <p><strong>Version:</strong> {software.version}</p>
                             <p><strong>Requirements:</strong> {software.requirements}</p>
                             <p><strong>Language:</strong> {software.language}</p>
+                            <p><strong>Price:</strong> INR {software.price}</p>
                             {user ? <div>
                                 {isAdded ? <button className='btn btn-success' onClick={() => removeSoftware()}>Remove From Collection</button> : ''}
                                 {!isAdded ? <button className='btn btn-success' onClick={() => addSoftware()}>Add To Collection</button> : ''}
