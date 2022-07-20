@@ -4,11 +4,11 @@ export const addToCollection = (data) => async(dispatch, getState) => {
     
     const requestOptions = {
         method: 'POST',
-        headers: {'Content-type': 'application/json'},
+        headers: {'Content-type': 'application/json', 'x-access-token': localStorage.getItem('x-access-token') },
         body: JSON.stringify(data)
     }
 
-    const res = await fetch(`http://localhost:3001/api/collection/create`, requestOptions);
+    const res = await fetch(`/api/collection/create`, requestOptions);
     const result = await res.json();
 
     dispatch({
@@ -19,7 +19,12 @@ export const addToCollection = (data) => async(dispatch, getState) => {
 
 export const getUserCollection = (id) => async(dispatch, getState) => {
 
-    const res = await fetch(`http://localhost:3001/api/collection/${id}`)
+    const res = await fetch(`/api/collection/${id}`, {
+        headers: {
+            'Content-Type' : 'applications/json',
+            'x-access-token': localStorage.getItem('x-access-token')
+        }
+    })
     const result = await res.json();
 
     dispatch({
@@ -31,7 +36,12 @@ export const getUserCollection = (id) => async(dispatch, getState) => {
 
 export const removeFromCollection = (softwareId) => async(dispatch, getState) => {
 
-    const res = await fetch(`http://localhost:3001/api/collection/${softwareId}`, { method: 'DELETE' })
+    const res = await fetch(`/api/collection/${softwareId}`, { method: 'DELETE', 
+        headers: {
+            'Content-Type' : 'applications/json',
+            'x-access-token': localStorage.getItem('x-access-token')
+        } 
+    })
 
     dispatch({
         type: REMOVE_FROM_COLLECTION,

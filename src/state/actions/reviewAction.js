@@ -8,7 +8,7 @@ export const createReview = (data) => async(dispatch, getState) => {
         body: JSON.stringify(data)
     }
 
-    const res = await fetch(`http://localhost:3001/api/create-review`, requestOptions);
+    const res = await fetch(`/api/create-review`, requestOptions);
     const result = await res.json();
 
     dispatch({
@@ -19,7 +19,7 @@ export const createReview = (data) => async(dispatch, getState) => {
 
 export const getReviews = (id) => async(dispatch, getState) => {
 
-    const res = await fetch(`http://localhost:3001/api/software-reviews/${id}`)
+    const res = await fetch(`/api/software-reviews/${id}`)
     const result = await res.json();
 
     dispatch({

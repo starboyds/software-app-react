@@ -17,6 +17,7 @@ const Navbar = () => {
 
     const logOut = () => {
         localStorage.removeItem('user');
+        localStorage.removeItem('x-access-token')
         dispatch(removeUser())
         dispatch(removeCollections())
     }

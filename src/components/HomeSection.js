@@ -5,7 +5,7 @@ const HomeSection = () => {
     const [softwares, setSoftwares] = useState([]);
 
     const fetchSoftwares = async() => {
-        const prod = await fetch(`http://localhost:3001/api/softwares`);
+        const prod = await fetch(`/api/softwares`);
         const data = await prod.json();
         setSoftwares(data.softwares)
     }

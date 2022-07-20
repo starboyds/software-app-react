@@ -26,6 +26,7 @@ const App = () => {
   useEffect(() => {
     let user = JSON.parse(localStorage.getItem('user'))
     if(user) {
+      console.log(user)
       dispatch(setUser(user))
       dispatch(getUserCollection(user.id))
     }

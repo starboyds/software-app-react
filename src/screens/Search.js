@@ -18,7 +18,7 @@ const Search = () => {
                 searchText: slug,
             })
         }
-        let res = await fetch('http://localhost:3001/api/search', requestOptions)
+        let res = await fetch('/api/search', requestOptions)
         const data = await res.json();
         setSoftwares(data);
     }
@@ -37,7 +37,7 @@ const Search = () => {
                 license: license
             })
         }
-        let res = await fetch('http://localhost:3001/api/search', requestOptions)
+        let res = await fetch('/api/search', requestOptions)
         const data = await res.json();
         console.log(data)
         setSoftwares(data);

@@ -17,14 +17,14 @@ const SoftwarePage = () => {
 
     // functions **************
     const fetchSoftware = async() => {
-        const res = await fetch(`http://localhost:3001/api/softwares/${id}`)
+        const res = await fetch(`/api/softwares/${id}`)
         const data = await res.json();
         setSoftware(data.software);
     }
 
     const checkIfAdded = () => {
         for(let i=0; i<collections.length; i++){
-            if(collections[i].softwareId == software._id) {
+            if(collections[i].product._id == software._id) {
                 return true;
             }
         }
@@ -33,8 +33,8 @@ const SoftwarePage = () => {
 
     const addSoftware = () => {
         let data = {
-            userId: user.id,
-            softwareId: software._id
+            user: user.id,
+            product: software._id
         }
         dispatch(addToCollection(data))
         setIsAdded(true);

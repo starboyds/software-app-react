@@ -23,7 +23,7 @@ const Login = () => {
             })
         }
 
-        const res = await fetch(`http://localhost:3001/api/login`, requestOptions);
+        const res = await fetch(`/api/login`, requestOptions);
         const result = await res.json();
         
         if(result.error) {
@@ -31,7 +31,8 @@ const Login = () => {
             return;
         }
 
-        localStorage.setItem('user', JSON.stringify(result));
+        localStorage.setItem('user', JSON.stringify({email: result.email, username: result.username, id: result.id}));
+        localStorage.setItem('x-access-token', result.token)
         dispatch(setUser(result))
         dispatch(getUserCollection(result.id))
         setEmail('');

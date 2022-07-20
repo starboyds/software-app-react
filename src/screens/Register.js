@@ -25,7 +25,7 @@ const Register = () => {
             })
         }
 
-        const res = await fetch(`http://localhost:3001/api/register`, requestOptions);
+        const res = await fetch(`/api/register`, requestOptions);
         const result = await res.json();
         
         if(result.error) {
@@ -33,7 +33,8 @@ const Register = () => {
             return;
         }
 
-        localStorage.setItem('user', JSON.stringify(result));
+        localStorage.setItem('user', JSON.stringify({email: result.email, username: result.username, id: result.id}));
+        localStorage.setItem('x-access-token', result.token)
         dispatch(setUser(result))
         dispatch(getUserCollection((result.id)))
         setUsername('');
